@@ -12,7 +12,7 @@ print(sessionInfo())
 cat("\n")
 
 # List of required packages
-required_packages <- c("tidyverse", "janitor", "lubridate", "skimr", "corrplot", "car", "rmarkdown", "knitr")
+required_packages <- c("tidyverse", "janitor", "skimr", "corrplot", "car", "rmarkdown", "knitr")
 
 # Check for missing packages
 missing_packages <- required_packages[!(required_packages %in% installed.packages()[,"Package"])]
