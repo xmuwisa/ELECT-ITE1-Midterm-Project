@@ -12,7 +12,7 @@ if (!dir.exists(output_dir)) {
   dir.create(output_dir, recursive = TRUE)
 }
 
-# 1. Generate a Skim summary of the dataset
+# Generate a Skim summary of the dataset
 skimmed_data <- skim(movie_data)
 
 # Save the skim summary to a text file
@@ -21,7 +21,7 @@ skim_summary <- capture.output(print(skimmed_data))
 writeLines(skim_summary, skim_summary_path)          
 print(paste("Skim summary saved to:", skim_summary_path))
 
-# 2. Additional Descriptive Statistics for numeric columns
+# Additional Descriptive Statistics for numeric columns
 # - Calculate mean, median, standard deviation, variance, min, max, range, quantiles
 
 numeric_cols <- movie_data %>% select(where(is.numeric))
@@ -42,16 +42,16 @@ stats_summary <- numeric_cols %>%
     ), .names = "{col}_{fn}")
   )
 
-# 3. Correlation matrix for numeric columns
+# Correlation matrix for numeric columns
 correlation_matrix <- numeric_cols %>%
   cor(use = "complete.obs")
 
-# 4. Explore the structure of the dataset
+# Explore the structure of the dataset
 dataset_structure <- capture.output(str(movie_data))
 head_data <- capture.output(head(movie_data))
 tail_data <- capture.output(tail(movie_data))
 
-# 5. Prepare output for additional statistics
+# Prepare output for additional statistics
 stats <- c(
   "── Data Exploration and Descriptive Statistics ────────────────────────",
   
