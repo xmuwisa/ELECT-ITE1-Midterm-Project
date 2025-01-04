@@ -1,0 +1,44 @@
+── Data Analysis ────────────────────────
+
+T-test for IMDb Ratings between High and Low-Rated Movies:
+
+
+	Welch Two Sample t-test
+
+data:  imdb_rating by rating_group
+t = 88.926, df = 4932.6, p-value < 2.2e-16
+alternative hypothesis: true difference in means between group High Rating and group Low Rating is not equal to 0
+95 percent confidence interval:
+ 1.646635 1.720874
+sample estimates:
+mean in group High Rating  mean in group Low Rating 
+                 7.587517                  5.903762 
+
+
+Fisher's Exact Test for Independence between Genre and Language (simulation):
+
+
+	Fisher's Exact Test for Count Data with simulated p-value (based on
+	10000 replicates)
+
+data:  genre_language_table
+p-value = 9.999e-05
+alternative hypothesis: two.sided
+
+
+Potential Anomalies in IMDb Ratings (Outliers):
+
+# A tibble: 8 × 16
+  movie_title   imdb_rating release_year index director_name duration actor_2_name
+  <chr>               <dbl>        <dbl> <dbl> <chr>            <dbl> <chr>       
+1 Foodfight!            1.7         2012  1136 Lawrence Kas…       91 Larry Miller
+2 The Shawshan…         9.3         1994  1937 Frank Darabo…      142 Jeffrey DeM…
+3 Disaster Mov…         1.9         2008  2268 Jason Friedb…       88 Tony Cox    
+4 Superbabies:…         1.9         2004  2295 Bob Clark           88 Vanessa Ang…
+5 Justin Biebe…         1.6         2011  2834 Jon M. Chu         115 Sean Kingst…
+6 The Godfathe…         9.2         1972  3466 Francis Ford…      175 Marlon Bran…
+7 Kickboxer: V…         9.1         2016  4409 John Stockwe…       90 T.J. Storm  
+8 The Helix...…         1.9         2005  4605 A. Raven Cruz       97 Vanilla Ice 
+# ℹ 9 more variables: genres <chr>, actor_1_name <chr>, num_voted_users <dbl>,
+#   actor_3_name <chr>, movie_imdb_link <chr>, num_user_for_reviews <dbl>,
+#   language <chr>, country <chr>, rating_group <chr>
