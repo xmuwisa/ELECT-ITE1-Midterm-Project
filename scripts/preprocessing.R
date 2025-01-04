@@ -1,50 +1,57 @@
-# Load required libraries
-library(tidyverse)
-library(janitor)
-
-# Define file paths
-input_file <- "data/movie_data.csv"
-output_file <- "data/cleaned_movie_data.csv"
+# Load necessary libraries
+library(tidyverse)  # Core for data manipulation
+library(janitor)    # For cleaning column names
+library(skimr)      # For data summarization
 
 # Import the dataset
-cat("Importing the dataset...\n")
-if (!file.exists(input_file)) {
-  stop("Input file not found. Please ensure the file exists in the 'data/' folder.")
-}
-movie_data <- read.csv(input_file)
+file_path <- "data/movie_data.csv"
+movie_data <- read_csv(file_path)
 
-# Display basic structure of the dataset
-cat("\nDataset structure:\n")
-print(str(movie_data))
+# Create output directory if it doesn't exist
+output_dir <- "data/output"
+if (!dir.exists(output_dir)) {
+  dir.create(output_dir, recursive = TRUE)
+}
+
+# Clean column names for consistency
+movie_data <- movie_data %>%
+  clean_names()  # Ensures all column names are in snake_case and consistent
 
 # Check for missing values
-cat("\nChecking for missing values...\n")
-missing_summary <- colSums(is.na(movie_data))
-print(missing_summary)
+# - Count missing values for each column
+missing_values <- movie_data %>%
+  summarise(across(everything(), ~ sum(is.na(.))))
+print("Missing values per column:")
+print(missing_values)
 
-# Handle missing values
-cat("\nHandling missing values...\n")
-
-# Replace missing numerical values (e.g., duration, num_user_for_reviews, title_year) with mean
+# Impute or remove missing values
+# - Impute `duration` with the mean
+# - Remove rows where `title_year` or `imdb_score` are missing
 movie_data <- movie_data %>%
-  mutate(across(c(duration, num_user_for_reviews, title_year), ~ ifelse(is.na(.), mean(., na.rm = TRUE), .)))
+  mutate(duration = ifelse(is.na(duration), mean(duration, na.rm = TRUE), duration)) %>%
+  drop_na(title_year, imdb_score)
 
-# Replace missing categorical values (e.g., director_name, language, country) with "Unknown"
+# Reformat columns for consistency
+# - Rename specific columns for clarity
 movie_data <- movie_data %>%
-  mutate(across(c(director_name, actor_2_name, actor_1_name, actor_3_name, language, country), 
-                ~ ifelse(is.na(.), "Unknown", .)))
+  rename(
+    imdb_rating = imdb_score,
+    release_year = title_year
+  )
 
-# Rename columns for consistency
-cat("\nRenaming columns for consistency...\n")
+# Reorder columns for better readability
+# - Move key columns like `movie_title` and `imdb_rating` to the front
 movie_data <- movie_data %>%
-  clean_names() # Standardize column names to snake_case
+  select(movie_title, imdb_rating, release_year, everything())
 
-# Reorder columns if necessary (example: move 'imdb_score' to the first position)
-movie_data <- movie_data %>%
-  select(imdb_score, everything())
+# Summarize cleaned dataset and save to a text file
+skimmed_data <- skim(movie_data)
+skim_summary_path <- file.path(output_dir, "skim_summary.txt")
+skim_summary <- capture.output(print(skimmed_data))  # Capture the output
+writeLines(skim_summary, skim_summary_path)          # Write it to the file
+print(paste("Skim summary saved to:", skim_summary_path))
 
-# Save the cleaned dataset
-cat("\nSaving the cleaned dataset...\n")
-write.csv(movie_data, output_file, row.names = FALSE)
-
-cat("Preprocessing complete. Cleaned data saved to:", output_file, "\n")
+# Save the cleaned dataset to the output folder
+cleaned_data_path <- file.path(output_dir, "cleaned_movie_data.csv")
+write_csv(movie_data, cleaned_data_path)
+print(paste("Cleaned dataset saved to:", cleaned_data_path))

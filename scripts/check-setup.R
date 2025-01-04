@@ -1,6 +1,3 @@
-# check_setup.R
-# This script checks the R installation and verifies the presence of required packages
-
 # Display R version information
 cat("R Version Information:\n")
 print(R.version)
@@ -12,7 +9,7 @@ print(sessionInfo())
 cat("\n")
 
 # List of required packages
-required_packages <- c("tidyverse", "janitor", "skimr", "corrplot", "car", "rmarkdown", "knitr")
+required_packages <- c("tidyverse", "janitor", "skimr", "corrplot", "car", "knitr")
 
 # Check for missing packages
 missing_packages <- required_packages[!(required_packages %in% installed.packages()[,"Package"])]
