@@ -4,8 +4,8 @@ library(janitor)    # For cleaning column names
 library(skimr)      # For data summarization
 
 # Import the dataset
-file_path <- "data/movie_data.csv"
-movie_data <- read_csv(file_path)
+data_file_path <- "data/movie_data.csv"
+movie_data <- read_csv(data_file_path)
 
 # Create output directory if it doesn't exist
 output_dir <- "data/output"
@@ -47,8 +47,8 @@ movie_data <- movie_data %>%
 # Summarize cleaned dataset and save to a text file
 skimmed_data <- skim(movie_data)
 skim_summary_path <- file.path(output_dir, "skim_summary.txt")
-skim_summary <- capture.output(print(skimmed_data))  # Capture the output
-writeLines(skim_summary, skim_summary_path)          # Write it to the file
+skim_summary <- capture.output(print(skimmed_data))  
+writeLines(skim_summary, skim_summary_path)          
 print(paste("Skim summary saved to:", skim_summary_path))
 
 # Save the cleaned dataset to the output folder
