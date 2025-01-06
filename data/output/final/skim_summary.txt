@@ -1,0 +1,39 @@
+── Data Summary ────────────────────────
+                           Values 
+Name                       dataset
+Number of rows             4935   
+Number of columns          15     
+_______________________           
+Column type frequency:            
+  character                9      
+  numeric                  6      
+________________________          
+Group variables            None   
+
+── Variable type: character ───────────────────────────────────────────────────────
+  skim_variable   n_missing complete_rate min max empty n_unique whitespace
+1 movie_title             0         1       2  87     0     4811          0
+2 director_name           0         1       3  32     0     2395          0
+3 actor_2_name           10         0.998   3  28     0     2963          0
+4 genres                  0         1       5  64     0      899          0
+5 actor_1_name            7         0.999   4  27     0     2043          0
+6 actor_3_name           18         0.996   3  29     0     3451          0
+7 movie_imdb_link         0         1      52  52     0     4813          0
+8 language                9         0.998   4  10     0       47          0
+9 country                 1         1.00    2  20     0       65          0
+
+── Variable type: numeric ─────────────────────────────────────────────────────────
+  skim_variable        n_missing complete_rate     mean        sd     p0    p25
+1 imdb_rating                  0         1         6.42      1.11    1.6    5.8
+2 release_year                 0         1      2002.       12.5  1916   1999  
+3 index                        0         1      2519.     1458.      0   1258. 
+4 duration                     0         1       108.       22.5     7     94  
+5 num_voted_users              0         1     84865.   139602.      5   8946  
+6 num_user_for_reviews        15         0.997   277.      381.      1     67  
+      p50     p75      p100 hist 
+1     6.5     7.2       9.3 ▁▁▅▇▂
+2  2005    2011      2016   ▁▁▁▂▇
+3  2517    3778.     5042   ▇▇▇▇▇
+4   104     118       330   ▁▇▁▁▁
+5 34985   97888   1689764   ▇▁▁▁▁
+6   159     331      5060   ▇▁▁▁▁
