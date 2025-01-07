@@ -1,13 +1,13 @@
 # A tibble: 3 × 54
-  imdb_rating_mean imdb_rating_median imdb_rating_sd imdb_rating_variance
-             <dbl>              <dbl>          <dbl>                <dbl>
-1             6.42                6.5           1.11                 1.24
-2             6.42                6.5           1.11                 1.24
-3             6.42                6.5           1.11                 1.24
-# ℹ 50 more variables: imdb_rating_min <dbl>, imdb_rating_max <dbl>,
-#   imdb_rating_range <dbl>, imdb_rating_quantiles <dbl>,
-#   imdb_rating_unique_values <int>, release_year_mean <dbl>,
-#   release_year_median <dbl>, release_year_sd <dbl>, release_year_variance <dbl>,
-#   release_year_min <dbl>, release_year_max <dbl>, release_year_range <dbl>,
-#   release_year_quantiles <dbl>, release_year_unique_values <int>,
-#   index_mean <dbl>, index_median <dbl>, index_sd <dbl>, index_variance <dbl>, …
+  imdb_rating_mean imdb_rating_median imdb_rating_sd imdb_rating_variance imdb_rating_min
+             <dbl>              <dbl>          <dbl>                <dbl>           <dbl>
+1             6.42                6.5           1.11                 1.24             1.6
+2             6.42                6.5           1.11                 1.24             1.6
+3             6.42                6.5           1.11                 1.24             1.6
+# ℹ 49 more variables: imdb_rating_max <dbl>, imdb_rating_range <dbl>, imdb_rating_quantiles <dbl>,
+#   imdb_rating_unique_values <int>, release_year_mean <dbl>, release_year_median <dbl>,
+#   release_year_sd <dbl>, release_year_variance <dbl>, release_year_min <dbl>,
+#   release_year_max <dbl>, release_year_range <dbl>, release_year_quantiles <dbl>,
+#   release_year_unique_values <int>, index_mean <dbl>, index_median <dbl>, index_sd <dbl>,
+#   index_variance <dbl>, index_min <dbl>, index_max <dbl>, index_range <dbl>, index_quantiles <dbl>,
+#   index_unique_values <int>, duration_mean <dbl>, duration_median <dbl>, duration_sd <dbl>, …

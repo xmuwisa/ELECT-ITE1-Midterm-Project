@@ -20,29 +20,27 @@ tibble [4,935 × 15] (S3: tbl_df/tbl/data.frame)
 First 6 Rows:
 
 # A tibble: 6 × 15
-  movie_title    imdb_rating release_year index director_name duration actor_2_name
-  <chr>                <dbl>        <dbl> <dbl> <chr>            <dbl> <chr>       
-1 Avatar                 7.9         2009     0 James Cameron      178 Joel David …
-2 Pirates of th…         7.1         2007     1 Gore Verbins…      169 Orlando Blo…
-3 Spectre                6.8         2015     2 Sam Mendes         148 Rory Kinnear
-4 The Dark Knig…         8.5         2012     3 Christopher …      164 Christian B…
-5 John Carter            6.6         2012     5 Andrew Stant…      132 Samantha Mo…
-6 Spider-Man 3           6.2         2007     6 Sam Raimi          156 James Franco
-# ℹ 8 more variables: genres <chr>, actor_1_name <chr>, num_voted_users <dbl>,
-#   actor_3_name <chr>, movie_imdb_link <chr>, num_user_for_reviews <dbl>,
-#   language <chr>, country <chr>
+  movie_title   imdb_rating release_year index director_name duration actor_2_name genres actor_1_name
+  <chr>               <dbl>        <dbl> <dbl> <chr>            <dbl> <chr>        <chr>  <chr>       
+1 Avatar                7.9         2009     0 James Cameron      178 Joel David … Actio… CCH Pounder 
+2 Pirates of t…         7.1         2007     1 Gore Verbins…      169 Orlando Blo… Actio… Johnny Depp 
+3 Spectre               6.8         2015     2 Sam Mendes         148 Rory Kinnear Actio… Christoph W…
+4 The Dark Kni…         8.5         2012     3 Christopher …      164 Christian B… Actio… Tom Hardy   
+5 John Carter           6.6         2012     5 Andrew Stant…      132 Samantha Mo… Actio… Daryl Sabara
+6 Spider-Man 3          6.2         2007     6 Sam Raimi          156 James Franco Actio… J.K. Simmons
+# ℹ 6 more variables: num_voted_users <dbl>, actor_3_name <chr>, movie_imdb_link <chr>,
+#   num_user_for_reviews <dbl>, language <chr>, country <chr>
 
 Last 6 Rows:
 
 # A tibble: 6 × 15
-  movie_title    imdb_rating release_year index director_name duration actor_2_name
-  <chr>                <dbl>        <dbl> <dbl> <chr>            <dbl> <chr>       
-1 The Mongol Ki…         7.8         2005  5036 Anthony Vall…       84 John Consid…
-2 Newlyweds              6.4         2011  5037 Edward Burns        95 Caitlin Fit…
-3 Signed Sealed…         7.7         2013  5038 Scott Smith         87 Daphne Zuni…
-4 A Plague So P…         6.3         2013  5040 Benjamin Rob…       76 Maxwell Moo…
-5 Shanghai Call…         6.3         2012  5041 Daniel Hsia        100 Daniel Henn…
-6 My Date with …         6.6         2004  5042 Jon Gunn            90 Brian Herzl…
-# ℹ 8 more variables: genres <chr>, actor_1_name <chr>, num_voted_users <dbl>,
-#   actor_3_name <chr>, movie_imdb_link <chr>, num_user_for_reviews <dbl>,
-#   language <chr>, country <chr>
+  movie_title   imdb_rating release_year index director_name duration actor_2_name genres actor_1_name
+  <chr>               <dbl>        <dbl> <dbl> <chr>            <dbl> <chr>        <chr>  <chr>       
+1 The Mongol K…         7.8         2005  5036 Anthony Vall…       84 John Consid… Crime… Richard Jew…
+2 Newlyweds             6.4         2011  5037 Edward Burns        95 Caitlin Fit… Comed… Kerry Bishé 
+3 Signed Seale…         7.7         2013  5038 Scott Smith         87 Daphne Zuni… Comed… Eric Mabius 
+4 A Plague So …         6.3         2013  5040 Benjamin Rob…       76 Maxwell Moo… Drama… Eva Boehnke 
+5 Shanghai Cal…         6.3         2012  5041 Daniel Hsia        100 Daniel Henn… Comed… Alan Ruck   
+6 My Date with…         6.6         2004  5042 Jon Gunn            90 Brian Herzl… Docum… John August 
+# ℹ 6 more variables: num_voted_users <dbl>, actor_3_name <chr>, movie_imdb_link <chr>,
+#   num_user_for_reviews <dbl>, language <chr>, country <chr>

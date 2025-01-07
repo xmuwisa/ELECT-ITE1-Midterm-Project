@@ -204,6 +204,22 @@ generate_fisher_test <- function(dataset, output_dir) {
   cat("Fisher's Exact Test results saved to:", output_path, "\n")
 }
 
+# Perform Chi-square Test
+generate_chi_square_test <- function(dataset, output_dir) {
+  dataset <- dataset %>%
+    mutate(
+      country_group = ifelse(country %in% c("USA", "UK", "India"), country, "Other"),
+      language_group = ifelse(language %in% c("English", "French", "Spanish"), language, "Other")
+    )
+  contingency_table <- table(dataset$country_group, dataset$language_group)
+  chi_test_result <- chisq.test(contingency_table)
+  output_path <- file.path(output_dir, "analysis_summary.txt")
+  write("\n── Chi-square Test for Independence between Country Group and Language Group ──\n", output_path, append = TRUE)
+  write(capture.output(print(chi_test_result)), output_path, append = TRUE)
+  cat("Chi-square Test results saved to:", output_path, "\n")
+}
+
+
 # 16. Identify Outliers
 generate_identified_outliers <- function(dataset, output_dir) {
   outliers <- dataset %>%
@@ -263,6 +279,7 @@ perform_test_and_analysis <- function(dataset_path, output_dir) {
   # Statistical tests and outlier detection
   generate_t_test(cleaned, output_dir)
   generate_fisher_test(cleaned, output_dir)
+  generate_chi_square_test(cleaned, output_dir)
   generate_identified_outliers(cleaned, output_dir)
   
   # Generate trend plot
